@@ -1,0 +1,117 @@
+@media screen and (min-width: 769px) {
+  .phone {
+    display: none;
+  }
+
+  .desktop {
+    display: contents;
+  }
+
+  header {
+    position: fixed;
+    height: 438px;
+    z-index: 5;
+  }
+
+  header h1 {
+    width: 700px;
+    position: absolute;
+    right: 51px;
+    top: 20px;
+  }
+
+  .search {
+    position: absolute;
+    left: 57px;
+    top: 148px;
+    width: 415px;
+    margin: 0;
+  }
+
+  #country {
+    display: block;
+    position: absolute;
+    left: 62px;
+    top: 96px;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #ffffff;
+  }
+
+  #make {
+    position: absolute;
+    right: 51px;
+    top: 230px;
+    padding: 35px;
+    margin: 0;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: right;
+  }
+
+  nav {
+    bottom: 39px;
+    width: 400px;
+    right: 86px;
+    justify-content: space-between;
+  }
+
+  .result {
+    height: 294.5;
+    width: 1060px;
+    position: fixed;
+    left: 29.5px;
+    top: 300px;
+    display: inline-flex;
+    z-index: 10;
+  }
+  .result div {
+    margin: 26.5px;
+    width: 300px;
+  }
+
+  .map {
+    position: absolute;
+    width: 650px;
+    height: 550px;
+    right: 86px;
+    top: 486px;
+    margin: 0;
+  }
+
+  #info {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 1006px;
+    left: 56px;
+    top: 605px;
+  }
+
+  #info {
+    height: auto;
+  }
+
+  .desktop table {
+    margin: 0;
+    padding: 23px 34px;
+    width: 100%;
+    height: 100%;
+  }
+
+  #infoDesk tr,
+  th {
+    text-align: start;
+  }
+
+  #infoDesk tr {
+    height: 50px;
+  }
+}

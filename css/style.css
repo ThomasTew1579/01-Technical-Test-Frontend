@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+.desktop {
+  display: none;
+}
+
+#country {
+  display: none;
+}
+
+body {
+  font-family: "Montserrat";
+  font-style: normal;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* header------------------------------------------------------------------------------ */
+header {
+  display: flex;
+  position: relative;
+  padding: 32px;
+  margin: 0;
+  margin-bottom: 41px;
+  background: linear-gradient(
+    106.22deg,
+    #000957 38.73%,
+    #344cb7 66.81%
+  ); /* 106.22deg ou 140deg ?*/
+  flex-direction: column;
+  
+}
+
+header h1 {
+  position: relative;
+  margin: 0px;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 59px;
+  text-align: right;
+
+  color: #ffffff;
+}
+
+.search {
+  margin-top: 62px;
+  position: relative;
+  display: flex;
+  padding: 0;
+  
+  height: 55px;
+  border-radius: 50px;
+  text-align: justify;
+  border: none;
+  background: #ffffff;
+}
+
+.aviable{
+  display: none;
+  position: absolute;
+  top: -55px;
+  left: 20px;
+  z-index: 10;
+  width: 100%;
+  color: rgb(255, 0, 0);
+}
+
+
+.search input {
+  width: 85%;
+  margin: 0%;
+  padding: 0%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  border: none;
+  left: 25px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.searchButton {
+  margin: 0%;
+  padding: 0%;
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  font-size: 20px;
+  right: 2px;
+  align-items: center;
+  background: #ebe645;
+  border-radius: 50px;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.searchButton:hover{
+  background-color: #577bc1;
+}
+
+#make {
+  margin: 20px;
+  margin-bottom: 32px;
+  padding-left: 30%;
+  position: relative;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: right;
+  color: #ffffff;
+}
+
+
+nav {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  bottom: -22.5px;
+  left: 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  font-size: 25px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+}
+
+
+.color1 {
+  color: #ffffff;
+  background-color: #000957;
+}
+.color2 {
+  color: #ffffff;
+  background-color: #577bc1;
+}
+.color3 {
+  color: #000000;
+  background-color: #ebe645;
+}
+.color4 {
+  color: #ffffff;
+  background-color: #511281;
+}
+
+/*  fin header --------------------------------------------------------------------------------- */
+
+/* card ---------------------------------------------------------------------------------------- */
+.card {
+  position: relative;
+}
+
+.card div {
+    margin:32px;
+  background-color:#FFF;
+  display:flex;
+  position: relative;
+  align-items: center;
+  /* max-width: 300px; */
+  min-width: 200px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  align-content: center;
+  flex-direction:column;
+  text-align:center;
+}
+
+.result div{
+  height: 230px;
+  
+}
+
+.card div h1 {
+  position:relative;
+  margin:32px;
+  padding:0;
+  height: 151px;
+  font-size: 72px;
+  line-height: 88px;
+  color: #577BC1;
+}
+
+.card h2 {
+  color: #000957;
+  top:-18px;
+  position:relative;
+
+  height: 111px;
+  font-size: 36px;
+  line-height: 44px;
+  margin:0;
+  padding:0;
+}
+
+#city h1 {
+  color: #000957;
+}
+
+#city h2 {
+  color: #577bc1;
+}
+
+.map {
+  background-color: #000957;
+  position: relative;
+  height: 331px;
+  border: solid;
+  border-radius: 10px;
+  margin: 0 35px 35px 35px;
+}
+
+footer{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+  height: 20px;
+  background-color: #dededea1;
+  font-size: small;
+}
+
+footer p {
+  padding: 0;
+  margin: 2px;
+  color: #a2a2a2;
+}
+
+/* format telephone--------------------------------------------------------*/
+
+.phone,.desktop div {
+  height: auto;
+  overflow: hidden;
+}
+
+#infoPhone{
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  align-items: stretch;
+  
+}
+
+ table {
+  position: relative;
+  margin: 0;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+  left: 0;
+}
+
+ td,
+th {
+  text-align: start;
+  padding: 15px;
+  /* width: 100px; */
+}
+
+
+ th {
+  width: 50px;
+  /* max-width: 100px; */
+}
+
+ td {
+  word-break: break-all;
+}
+
+  #map {
+  position: relative;
+  height: 331px;
+  /* border: solid; */
+  border-radius: 10px;
+  margin: 0 35px 35px 35px;
+  }

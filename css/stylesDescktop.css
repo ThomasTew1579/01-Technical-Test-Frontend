@@ -1,0 +1,180 @@
+@media screen and (min-width: 1170px) {
+  .desktop{
+    display: flex;
+    justify-content: space-between;
+    /* top: -1000px; */
+    margin-left: 56px;
+    margin-right: 86px;
+
+   
+  }
+
+  .phone{
+    display: none;
+  }
+
+
+
+  header {
+    position: relative;
+    height: 620px;
+    margin-bottom: 41px;
+    padding-right: 86px;
+    padding-top: 44px;
+    background: linear-gradient(
+      140deg,
+      #000957 38.73%,
+      #344cb7 66.81%
+    ); /* 106.22deg ou 140deg ?*/
+    flex-direction: column;
+    align-items: flex-end;
+
+  
+  }
+
+  header h1{
+    width: 50%;
+    font-size: 72px;
+    line-height: 88.77px;
+  }
+
+  nav {
+    position: relative;
+    top: 70px;
+    width: 350px;
+    justify-content: space-between;
+  }
+  .search {
+    margin-top: 0;
+    position: absolute;
+    width: 415px;
+    padding: 0;
+    left: 57px;
+    top: 156px;
+  }
+  
+  #country{
+    display: flex;
+    margin: 0;
+    position: absolute;
+    width: 373px;
+    height: 37px;
+    left: 62px;
+    top: 103px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+  }
+  
+  #make{
+    margin-right: 0;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    top: 40px;
+  }
+  
+  section{
+    position: relative;
+    top: -212px;
+  }
+
+  .card{
+
+    flex-direction:row;
+  }
+  
+  .result{
+    margin: 56px ;
+    justify-content: space-between;
+  
+    display: flex;
+     max-width: 1006px;
+  }
+  .result div{
+      width: 300px;
+      height: 230px;
+      margin: 0;
+  }
+  
+  
+  #info{
+    position: relative;
+    margin: 0;
+    height: 60%;
+    width: 1006px;
+    display: flex;
+    flex-direction: row;
+  }
+  #map{
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 56px;
+    max-width: 1006px;
+    
+  }
+  
+  
+  
+}
+
+@media screen and (min-width: 1820px){
+  #map{
+    position: absolute;
+  
+    top: 212px;
+    right: 86px;
+  
+    width: 100%;
+    height: 100%;
+    max-width: 650px;
+    min-width: 200px;
+
+    min-height: 550px;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    box-shadow: none;
+
+  }
+}
+
+@media screen and (min-width: 1662px){
+
+  
+  header {
+
+    height: 438px;
+
+
+  
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

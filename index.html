@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Technical-Test-Frontend Thomas Pasquet</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/stylesDescktop.css" />
+    
+    <script
+    src="https://kit.fontawesome.com/665bd144e6.js"
+    crossorigin="anonymous"
+    ></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+    
+  </head>
+  <body>
+    <header>
+      
+      <h1>Find Breweries in your country!</h1>
+      
+      <h3 id="country">Type your country here...</h3>
+      
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="France" id="in" />
+        <button type="submit" class="searchButton" onclick="getValue()" >
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <p class="aviable">Country available : <span id="aviable"></span></p>
+      </div>
+      
+      <h3 id="make">Make a search to find if Breweries are near to you!</h3>
+      
+      <nav>
+        <button class="color1">
+          <i class="fa-solid fa-beer-mug-empty"></i>
+        </button>
+        <button class="color2">
+          <i class="fa-solid fa-city"></i>
+        </button>
+        <button class="color3">
+          <i class="fa-solid fa-list"></i>
+        </button>
+        <button class="color4">
+          <i class="fa-solid fa-location-dot"></i>
+        </button>
+      </nav>
+    </header>
+    
+    
+    
+    <section>
+      <div class="card result">
+        <div>
+          <h1 id="brewberiesNo"></h1>
+          <h2>Brewerie(s)</h2>
+        </div>
+        <div id="city">
+          <h1 id="cityNo"></h1>
+          <h2 id="cityNa">In</h2>
+        </div>
+        <div>
+          <h1 id="stateNo"></h1>
+          <h2 id="stateNa"></h2>
+        </div>
+      </div>
+      
+      <div class="card phone" id="phone" >
+     
+          <!-- insertion avec JS -->
+       
+      </div>
+      
+      <div class="card desktop">
+        <div id="info">
+    
+            <!-- insertion avec JS -->
+        
+        </div>
+      </div>
+      <div id="BeerMap">
+      <!-- <div id="map"></div> -->
+      </div>
+    </section>
+    
+    <footer>
+      <p>© Thomas Pasquet</p>
+      <p>Aout 2022</p>
+    </footer>
+    <script type="text/javascript" src="js/script_pays_disponible.js"></script>
+    <script type="text/javascript" src="js/script_retour_info.js"></script>
+  </body>
+  </html>
+  
