@@ -9,7 +9,7 @@ recevoirReponseDispo();
 
 function selectionPays(reponse) {
   for (const indexPays in reponse) {
-    tableauPays.push(reponse[indexPays].country);
+    tableauPays.push(reponse[indexPays].country.toLowerCase());
   }
   
   listePays = tableauPays.filter(function (a, b) {
@@ -17,6 +17,7 @@ function selectionPays(reponse) {
   });
   document.querySelector('#aviable').textContent = listePays;
   console.log(listePays);
+  return listePays
   
 }
 

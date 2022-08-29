@@ -15,23 +15,30 @@ recherche(paysChoisie);
 
 
   function getValue() {
-    let input = document.getElementById("in").value;
-    if (input == "" || input == " ") { 
-      document.querySelector(".search").style.border = "solid red";
-      document.querySelector(".searchButton").style.background = "red";
-      document.querySelector(".aviable").style.display = "flex";
-
-      console.log(search);
-    } else {
+    let dispo = selectionPays();
+    console.log(dispo)
+    let input = document.getElementById("in").value.toLowerCase();
+    console.log(input)
+    confirmDispo = dispo.includes(input);
+    console.log(confirmDispo)
+    if (confirmDispo == true) { 
       if (document.querySelector(".search").style.border == "solid red") {
         document.querySelector(".search").style.border = "none";
         document.querySelector(".searchButton").style.background = "#ebe645";
         document.querySelector(".aviable").style.display = "none";
-        recherche(input);
-      } else {
         clearAll();
         recherche(input);
+      } else {  
+        clearAll();
+        recherche(input);
+        console.log('patate')  
       }
+    } else {
+      document.querySelector(".search").style.border = "solid red";
+      document.querySelector(".searchButton").style.background = "red";
+      document.querySelector(".aviable").style.display = "flex";
+
+      console.log(search + " search");
     }
   }
 
@@ -279,7 +286,6 @@ function recherche(pays) {
 
       //https://developer.mozilla.org/fr/docs/Web/API/HTMLTableElement/insertRow
 
-      console.log(indexNom);
     }
   }
   //               valeur de sortie = nom, adresse, telephone, site web
@@ -346,7 +352,6 @@ function recherche(pays) {
               // console.log(nombrePage)
               nombrePage++;
               recevoirReponse(pays);
-              console.log(nombrePage+"  page")
             }
           }
         } else {
