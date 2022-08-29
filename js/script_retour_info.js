@@ -16,7 +16,7 @@ recherche(paysChoisie);
 
   function getValue() {
     let input = document.getElementById("in").value;
-    if (input == "") {
+    if (input == "" || input == " ") { 
       document.querySelector(".search").style.border = "solid red";
       document.querySelector(".searchButton").style.background = "red";
       document.querySelector(".aviable").style.display = "flex";
@@ -272,12 +272,14 @@ function recherche(pays) {
       if (longVille == null || latVille == null) {
       } else {
         marker = L.marker([latVille, longVille]).addTo(map);
-        marker.bindPopup("<b>"+nom+"</b><br>"+adresse).openPopup();
+        if(indexNom < 2000){
+          marker.bindPopup("<b>"+nom+"</b><br>"+adresse).openPopup();
+        }
       }
 
       //https://developer.mozilla.org/fr/docs/Web/API/HTMLTableElement/insertRow
 
-      // console.log(nom + " , " + adresse + " , " + indexNom + " , " + site);
+      console.log(indexNom);
     }
   }
   //               valeur de sortie = nom, adresse, telephone, site web
@@ -286,6 +288,12 @@ function recherche(pays) {
   // recuperation des information de l'API----------------------------------------------------------------------------------------
 
   function recevoirReponse(pays) {
+
+    document.querySelector('#waiting').style.display ="block";
+    document.querySelector('header').className ='wait';
+    document.querySelector('section').className ='wait';
+
+
     const url =
       "https://api.openbrewerydb.org/breweries?" +
       filtre +
@@ -309,10 +317,12 @@ function recherche(pays) {
             console.log("rien sur la premiere page");
               document.querySelector(".search").style.border = "solid red";
               document.querySelector(".searchButton").style.background = "red";
+              document.querySelector("#waiting").style.display = "none";
+              document.querySelector("header").className = "";
+              document.querySelector("section").className = ""; 
             
           } else {
             // si la reponse est viable, on verifie que la reponse contiens plusieurs page
-            console.log(reponseApi);
             if (reponseApi.length != 20) {
               for (const indexBrasserie in reponseApi) {
                 reponseToutesLesPages.push(reponseApi[indexBrasserie]);
@@ -324,6 +334,10 @@ function recherche(pays) {
               recupererNom(reponseToutesLesPages);
               console.log("pong");
               console.log(reponseToutesLesPages.length + " en " + pays);
+
+                  document.querySelector("#waiting").style.display = "none";
+                  document.querySelector("header").className = "";
+                  document.querySelector("section").className = "";
             } else {
               // si la reponse contiens plusieur page on relance la requette a chaque page pleine ( nombre max de brasserie par page = 20)
               for (const indexBrasserie in reponseApi) {
@@ -332,13 +346,13 @@ function recherche(pays) {
               // console.log(nombrePage)
               nombrePage++;
               recevoirReponse(pays);
+              console.log(nombrePage+"  page")
             }
           }
         } else {
           alert("Un problème est intervenu, merci de revenir plus tard.");
         }
       }
-      // console.log("race"+NombreTotalPays)
     };
   }
 }
