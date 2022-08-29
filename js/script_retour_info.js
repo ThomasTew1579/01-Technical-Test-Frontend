@@ -207,6 +207,7 @@ function recherche(pays) {
       let adresse;
       let telephone;
       let site;
+      let city;
       let latVille = 0;
       let longVille = 0;
 
@@ -214,6 +215,12 @@ function recherche(pays) {
         nom = "";
       } else {
         nom = reponse[indexNom].name;
+      }
+      
+      if (reponse[indexNom].city == null) {
+        city = "";
+      } else {
+        city = reponse[indexNom].city;
       }
 
       if (reponse[indexNom].street == null) {
@@ -280,7 +287,9 @@ function recherche(pays) {
       } else {
         marker = L.marker([latVille, longVille]).addTo(map);
         if(indexNom < 1000){
-          marker.bindPopup("<b>"+nom+"</b><br>"+adresse).openPopup();
+          marker
+            .bindPopup("<b>" + nom + "</b><br>" + adresse + "<br>" + city)
+            .openPopup();
         }
       }
 

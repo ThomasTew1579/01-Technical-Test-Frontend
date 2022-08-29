@@ -23,7 +23,7 @@ function selectionPays(reponse) {
 
 
 function recevoirReponseDispo() {
-  // console.log('patate '+nombre)------------------------------------------------
+
   
   const url = "https://api.openbrewerydb.org/breweries?page=" + nombre + "#";
   let requete = new XMLHttpRequest();
