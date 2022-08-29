@@ -48,6 +48,8 @@
     width: 350px;
     justify-content: space-between;
   }
+
+  
   .search {
     margin-top: 0;
     position: absolute;
@@ -124,6 +126,12 @@
   
 }
 
+@media screen and (min-width: 1662px){
+  header {
+    height: 438px;
+  }
+}
+
 @media screen and (min-width: 1820px){
   #map{
     position: absolute;
@@ -142,20 +150,12 @@
     height: auto;
     box-shadow: none;
 
+    
+    
   }
+
 }
 
-@media screen and (min-width: 1662px){
-
-  
-  header {
-
-    height: 438px;
-
-
-  
-  }
-}
 
 
 
