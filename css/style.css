@@ -35,6 +35,7 @@ body {
 
 .wait{
   filter:  saturate(30%) blur(10px) ;
+  transition: 0.2s;
 }
 
 /* header------------------------------------------------------------------------------ */
@@ -81,11 +82,12 @@ header h1 {
 .aviable{
   display: none;
   position: absolute;
-  top: -55px;
-  left: 20px;
+  top: -80px;
+  left: 0px;
   z-index: 10;
-  width: 100%;
+  /* width: 100%; */
   color: rgb(255, 0, 0);
+  flex-direction: column;
 }
 
 

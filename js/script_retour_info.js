@@ -279,7 +279,7 @@ function recherche(pays) {
       if (longVille == null || latVille == null) {
       } else {
         marker = L.marker([latVille, longVille]).addTo(map);
-        if(indexNom < 2000){
+        if(indexNom < 1000){
           marker.bindPopup("<b>"+nom+"</b><br>"+adresse).openPopup();
         }
       }

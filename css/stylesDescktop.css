@@ -13,7 +13,11 @@
     display: none;
   }
 
+  .aviable{
 
+  top: 50px;
+
+}
 
   header {
     position: relative;

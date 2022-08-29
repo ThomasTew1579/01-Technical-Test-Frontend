@@ -15,8 +15,8 @@ function selectionPays(reponse) {
   listePays = tableauPays.filter(function (a, b) {
     return tableauPays.indexOf(a) == b;
   });
-  document.querySelector('#aviable').textContent = listePays;
   console.log(listePays);
+  document.querySelector("#aviable").textContent = listePays.join(" , ");
   return listePays
   
 }
