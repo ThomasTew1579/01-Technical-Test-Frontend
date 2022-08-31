@@ -1,7 +1,5 @@
 //https://api.openbrewerydb.org/breweries?by_country=england&page=1#
 
-
-
 // united_states !370 pages et 7926 resultats!!
 //'Ireland', 'South_Korea', 'England', 'France', 'Scotland'
 let infoPhoneT;
@@ -12,49 +10,41 @@ let paysChoisie = "france";
 
 recherche(paysChoisie);
 
+function getValue() {
+  let dispo = selectionPays();
 
+  let input = document.getElementById("in").value.toLowerCase();
 
-  function getValue() {
-    let dispo = selectionPays();
-    console.log(dispo)
-    let input = document.getElementById("in").value.toLowerCase();
-    console.log(input)
-    confirmDispo = dispo.includes(input);
-    console.log(confirmDispo)
-    if (confirmDispo == true) { 
-      if (document.querySelector(".search").style.border == "solid red") {
-        document.querySelector(".search").style.border = "none";
-        document.querySelector(".searchButton").style.background = "#ebe645";
-        document.querySelector(".aviable").style.display = "none";
-        clearAll();
-        recherche(input);
-      } else {  
-        clearAll();
-        recherche(input);
-        console.log('patate')  
-      }
+  confirmDispo = dispo.includes(input);
+
+  if (confirmDispo == true) {
+    if (document.querySelector(".search").style.border == "solid red") {
+      document.querySelector(".search").style.border = "none";
+      document.querySelector(".searchButton").style.background = "#ebe645";
+      document.querySelector(".aviable").style.display = "none";
+      clearAll();
+      recherche(input);
     } else {
-      document.querySelector(".search").style.border = "solid red";
-      document.querySelector(".searchButton").style.background = "red";
-      document.querySelector(".aviable").style.display = "flex";
-
-      console.log(search + " search");
+      clearAll();
+      recherche(input);
+      console.log("patate");
     }
+  } else {
+    document.querySelector(".search").style.border = "solid red";
+    document.querySelector(".searchButton").style.background = "red";
+    document.querySelector(".aviable").style.display = "flex";
   }
+}
 
-
-function clearAll(){
-  const divPhone = document.getElementById('infoPhone')
+function clearAll() {
+  const divPhone = document.getElementById("infoPhone");
   divPhone.remove();
   infoDesk.remove();
   const divMap = document.getElementById("map");
   divMap.remove();
-
 }
 
 function recherche(pays) {
-  //https://waytolearnx.com/2019/07/comment-recuperer-la-valeur-dun-input-texte-en-javascript.html#:~:text=Vous%20pouvez%20simplement%20utiliser,bouton%20%C2%AB%20R%C3%A9cup%C3%A9rer%20la%20valeur%20%C2%BB.
-
   let filtre = "by_country";
   let nombrePage = 1;
   let reponseApi;
@@ -62,13 +52,10 @@ function recherche(pays) {
   var NombreTotalPays = 0;
 
   let compteur = {};
-  let compteurDeux = {};
   let tableauCompteur = [];
-  let tableauCompteurDepartement = [];
   let tableauVille = [];
   let max;
   let villePrincipal;
-  let tableauDepartement = [];
   let villeIndex;
 
   let infoNombrePays = document.querySelector("#brewberiesNo");
@@ -83,10 +70,6 @@ function recherche(pays) {
   let infoPhoneT;
   let refInfoPhone;
 
-  let nouvelleCard;
-
-  let nouvelleLigne;
-
   let lat = 0;
   let long = 0;
 
@@ -95,6 +78,32 @@ function recherche(pays) {
   recevoirReponse(pays);
 
   function nombreDepartement(ville, reponse) {
+    let tableauCompteurDepartement = [];
+    let compteurDeux = {};
+    let tableauCompteurProvince = [];
+    let compteurTrois = {};
+    let tableauDepartement = [];
+    let tableauProvince = [];
+    let nombreDansDepartement;
+    let nombreDansProvince;
+
+    for (const indexProvince in reponse) {
+      tableauProvince.push(reponse[indexProvince].county_province);
+    } // insertion de toute les departement dans un tableau (tableauProvince)
+
+    for (var i = 0; i < tableauProvince.length; i++) {
+      let num = tableauProvince[i];
+      compteurTrois[num] = compteurTrois[num] ? compteurTrois[num] + 1 : 1;
+    } // compteur de repetition des noms dans le tableau et injecter dans le tableau (compteur)
+
+    for (const indexCompteur in tableauProvince) {
+      tableauCompteurProvince.push(
+        compteurTrois[tableauProvince[indexCompteur]]
+      );
+    } // insertion du nombre de repetition de chaque departement dans le tableau (tableauCompteur) avec le meme index que (tableauProvince)
+
+    let province = tableauProvince[ville];
+
     for (const indexDepartment in reponse) {
       tableauDepartement.push(reponse[indexDepartment].state);
     } // insertion de toute les departement dans un tableau (tableauDepartement)
@@ -113,28 +122,35 @@ function recherche(pays) {
     let Departement = tableauDepartement[ville];
 
     if (Departement == null) {
-      console.log("Y'a pas de department dans ton pays a la con !");
-      infoNomDep.textContent = "No state in this country";
-      infoNombreDep.textContent = "";
-    } else {
-      nombreDepartement =
-        tableauCompteur[tableauDepartement.indexOf(Departement)];
-      infoNomDep.textContent = Departement;
-      infoNombreDep.textContent = nombreDepartement;
+      nombreDansProvince =
+        tableauCompteurProvince[tableauProvince.indexOf(province)];
+      infoNomDep.textContent = province;
+      infoNombreDep.textContent = nombreDansProvince;
 
-      console.log(nombreDepartement + " en " + Departement);
+      console.log(nombreDansProvince + " en " + province);
+      console.log(tableauCompteur);
+
+      // console.log("Y'a pas de department dans ton pays a la con !");
+      // infoNomDep.textContent = "No state in this country";
+      // infoNombreDep.textContent = "";
+    } else {
+      nombreDansDepartement =
+        tableauCompteurDepartement[tableauDepartement.indexOf(Departement)];
+      infoNomDep.textContent = Departement;
+      infoNombreDep.textContent = nombreDansDepartement;
+
+      console.log(nombreDansDepartement + " en " + Departement);
+      console.log(tableauCompteur);
     }
   }
 
   // recherche de la ville avec le plus de brasserie dans le pays rechercher------------------------------------------------------
 
   function definirVillePrincipale(reponse) {
-
     refMap = document.getElementById("BeerMap");
     beerMap = document.createElement("div");
     beerMap.id = "map";
     refMap.append(beerMap);
-
 
     for (const indexVille in reponse) {
       tableauVille.push(reponse[indexVille].city);
@@ -185,9 +201,9 @@ function recherche(pays) {
   // recuperer les information des brasserie---------------------------------------------------------------------------------------
 
   function recupererNom(reponse) {
+    let nouvelleCard;
 
-    
-
+    let nouvelleLigne;
     // cree une div contenant chaque carte des info sur telephone
     refInfoPhone = document.getElementById("phone");
     infoPhoneT = document.createElement("div");
@@ -216,7 +232,7 @@ function recherche(pays) {
       } else {
         nom = reponse[indexNom].name;
       }
-      
+
       if (reponse[indexNom].city == null) {
         city = "";
       } else {
@@ -249,7 +265,7 @@ function recherche(pays) {
       // refCard = document.getElementById("infoPhone");
       nouvelleCard = document.createElement("div");
 
-      nouvelleCard.innerHTML = 
+      nouvelleCard.innerHTML =
         '<table id="dlt"><tr><th>Name</th><td>' +
         nom +
         "</td></tr><tr><th>Address</th><td>" +
@@ -262,7 +278,6 @@ function recherche(pays) {
 
       // refCard.append(nouvelleCard);
       infoPhoneT.append(nouvelleCard);
-
 
       // Insère une ligne dans la table à l'indice de ligne -1
       nouvelleLigne = infoDesk.insertRow(-1);
@@ -286,7 +301,7 @@ function recherche(pays) {
       if (longVille == null || latVille == null) {
       } else {
         marker = L.marker([latVille, longVille]).addTo(map);
-        if(indexNom < 1000){
+        if (indexNom < 1000) {
           marker
             .bindPopup("<b>" + nom + "</b><br>" + adresse + "<br>" + city)
             .openPopup();
@@ -294,7 +309,6 @@ function recherche(pays) {
       }
 
       //https://developer.mozilla.org/fr/docs/Web/API/HTMLTableElement/insertRow
-
     }
   }
   //               valeur de sortie = nom, adresse, telephone, site web
@@ -303,11 +317,9 @@ function recherche(pays) {
   // recuperation des information de l'API----------------------------------------------------------------------------------------
 
   function recevoirReponse(pays) {
-
-    document.querySelector('#waiting').style.display ="block";
-    document.querySelector('header').className ='wait';
-    document.querySelector('section').className ='wait';
-
+    document.querySelector("#waiting").style.display = "block";
+    document.querySelector("header").className = "wait";
+    document.querySelector("section").className = "wait";
 
     const url =
       "https://api.openbrewerydb.org/breweries?" +
@@ -330,12 +342,11 @@ function recherche(pays) {
           // verification de la viabilité de la recherche
           if (reponseApi.length == 0 && nombrePage == 1) {
             console.log("rien sur la premiere page");
-              document.querySelector(".search").style.border = "solid red";
-              document.querySelector(".searchButton").style.background = "red";
-              document.querySelector("#waiting").style.display = "none";
-              document.querySelector("header").className = "";
-              document.querySelector("section").className = ""; 
-            
+            document.querySelector(".search").style.border = "solid red";
+            document.querySelector(".searchButton").style.background = "red";
+            document.querySelector("#waiting").style.display = "none";
+            document.querySelector("header").className = "";
+            document.querySelector("section").className = "";
           } else {
             // si la reponse est viable, on verifie que la reponse contiens plusieurs page
             if (reponseApi.length != 20) {
@@ -350,9 +361,9 @@ function recherche(pays) {
               console.log("pong");
               console.log(reponseToutesLesPages.length + " en " + pays);
 
-                  document.querySelector("#waiting").style.display = "none";
-                  document.querySelector("header").className = "";
-                  document.querySelector("section").className = "";
+              document.querySelector("#waiting").style.display = "none";
+              document.querySelector("header").className = "";
+              document.querySelector("section").className = "";
             } else {
               // si la reponse contiens plusieur page on relance la requette a chaque page pleine ( nombre max de brasserie par page = 20)
               for (const indexBrasserie in reponseApi) {
