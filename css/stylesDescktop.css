@@ -128,8 +128,9 @@
 
 @media screen and (min-width: 1662px){
   header {
-    height: 438px;
+    max-height: 438px;
   }
+
 }
 
 @media screen and (min-width: 1820px){
@@ -149,8 +150,6 @@
     padding: 0;
     height: auto;
     box-shadow: none;
-
-    
     
   }
 
