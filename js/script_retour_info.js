@@ -129,10 +129,6 @@ function recherche(pays) {
 
       console.log(nombreDansProvince + " en " + province);
       console.log(tableauCompteur);
-
-      // console.log("Y'a pas de department dans ton pays a la con !");
-      // infoNomDep.textContent = "No state in this country";
-      // infoNombreDep.textContent = "";
     } else {
       nombreDansDepartement =
         tableauCompteurDepartement[tableauDepartement.indexOf(Departement)];
