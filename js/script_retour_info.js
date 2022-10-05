@@ -18,10 +18,8 @@ function getValue() {
   confirmDispo = dispo.includes(input);
 
   if (confirmDispo == true) {
-    if (document.querySelector(".search").style.border == "solid red") {
-      document.querySelector(".search").style.border = "none";
-      document.querySelector(".searchButton").style.background = "#ebe645";
-      document.querySelector(".aviable").style.display = "none";
+    if (document.querySelector(".search").className = "search aviable") {
+      document.querySelector(".search").className = "search";
       clearAll();
       recherche(input);
     } else {
@@ -30,9 +28,7 @@ function getValue() {
       console.log("patate");
     }
   } else {
-    document.querySelector(".search").style.border = "solid red";
-    document.querySelector(".searchButton").style.background = "red";
-    document.querySelector(".aviable").style.display = "flex";
+    document.querySelector(".search").className = "search aviable";
   }
 }
 
@@ -303,8 +299,6 @@ function recherche(pays) {
             .openPopup();
         }
       }
-
-      //https://developer.mozilla.org/fr/docs/Web/API/HTMLTableElement/insertRow
     }
   }
   //               valeur de sortie = nom, adresse, telephone, site web
